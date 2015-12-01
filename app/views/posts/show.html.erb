@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="row">
+  <div class="col-md-3">
+  <img src="https://pp.vk.me/c622123/v622123489/2aafb/-de8E_4T9Ss.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="304"> 
+  </div>
+  
+  <div class="col-md-6">
+  
+    <div class="panel panel-warning">
+      <div class="panel-heading" align="center">Посты</div>
+      <div class="panel-body">
+        
+        <strong><%= @post.name %></strong>
+        <br>
+        <%= @post.content %>
+        <%= link_to 'Редактировать', edit_post_path(@post) %> |
+        <%= link_to 'Назад', posts_path %>
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-3">
+  
+  <%= button_to "Создать пост", new_post_path, :class => "btn btn-info", :method => :get  %>
+  
+  </div>
+</div>

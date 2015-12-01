@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
+<div class="row">
+  <div class="col-md-3">
+  <img src="https://pp.vk.me/c622123/v622123489/2aafb/-de8E_4T9Ss.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="304"> 
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-warning">
+      <div class="panel-heading" id = "image1" align="center"></div>
+      <div class="panel-body">
+      <%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form">
+    <%= f.label :"Название" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :"Содержание" %><br>
+    <%= f.text_area :content, class: "form-control", rows: "10" %>
+  </div>
+  <div class="action">
+    <%= f.button :submit => "Отправить", class: "btn btn-success btn-xs" %>
+  </div>
+  <%= link_to 'Назад', posts_path %>
+<% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+  <%= button_to "Создать пост", new_post_path, :class => "btn btn-info", :method => :get  %>
+  </div>
+</div>
+
+
+
